@@ -55,8 +55,8 @@ public class ScheduleScreen extends Fragment {
         getActivity().registerReceiver(scheduleReceiver, iFilter);
 
         Intent testIntent = new Intent(getActivity(), UlisesService.class);
-        testIntent.putExtra("login", "");
-        testIntent.putExtra("password", "");
+        testIntent.putExtra("login", "fypenas");
+        testIntent.putExtra("password", "charisaur");
         getActivity().startService(testIntent);
 
         return myScheduleView;

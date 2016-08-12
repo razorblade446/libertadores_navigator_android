@@ -61,20 +61,21 @@ public class MainScreen extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.main_container, NewsScreen.newInstance(), "news")
+                .addToBackStack("news")
+                .commit();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.main_container, NewsScreen.newInstance(), null)
-                .commit();
     }
 
     @Override
     protected void onDestroy() {
-        EventBus.getDefault().unregister(this);
         super.onDestroy();
     }
 
@@ -123,8 +124,8 @@ public class MainScreen extends AppCompatActivity
         if (id == R.id.schedule) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .add(R.id.main_container, ScheduleScreen.newInstance(), null)
-                    .addToBackStack(null)
+                    .add(R.id.main_container, ScheduleScreen.newInstance(), "schedule")
+                    .addToBackStack("schedule")
                     .commit();
         }
 
