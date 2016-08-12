@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Materia"
+            android:id="@+id/courseLabel"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:textStyle="bold"
+            android:height="16dp"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salón"
+            android:id="@+id/classroomLabel"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/courseLabel"
+            android:textStyle="bold"
+            android:height="16dp"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Horario"
+            android:id="@+id/scheduledTimeLabel"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/classroomLabel"
+            android:textStyle="bold"
+            android:height="16dp"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sede"
+            android:id="@+id/locationLabel"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/scheduledTimeLabel"
+            android:textStyle="bold"
+            android:height="16dp"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="_Curso_"
+            android:id="@+id/course"
+            android:layout_toEndOf="@id/courseLabel"
+            android:layout_marginStart="5dp"
+            android:layout_below="@id/course"
+            android:height="16dp"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="_Salon_"
+            android:id="@+id/classroom"
+            android:layout_below="@id/course"
+            android:layout_alignStart="@id/course"
+            android:height="16dp"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="_Horario_"
+            android:id="@+id/scheduledTime"
+            android:layout_below="@id/classroom"
+            android:layout_alignStart="@id/classroom"
+            android:height="16dp"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="_Sede_"
+            android:id="@+id/location"
+            android:layout_below="@id/scheduledTime"
+            android:layout_alignStart="@id/scheduledTime"
+            android:height="16dp"/>
+
+</RelativeLayout>

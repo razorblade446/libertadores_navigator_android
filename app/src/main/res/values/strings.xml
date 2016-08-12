@@ -5,4 +5,12 @@
     <string name="navigation_drawer_close">Cerrar menú de navegación</string>
 
     <string name="action_settings">Configuración</string>
+
+    <string name="schedule_day_time">%1$s %2$s</string>
+
+    <string name="schedule_screen">Horario</string>
+    <string name="news_screen">Noticias</string>
+
+    <string name="Auth0DomainID">razorblade446.auth0.com</string>
+    <string name="Auth0ClientID">nNpSdZpBAYCGJNlnciLbIez0v45shxog</string>
 </resources>

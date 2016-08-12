@@ -14,7 +14,7 @@
         tools:context="net.razorblade446.android.libertadoresnavigator.MainScreen">
 
     <ListView
-            android:id="@+id/blogList"
+            android:id="@+id/scheduleList"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

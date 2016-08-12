@@ -1,27 +1,17 @@
 package net.razorblade446.android.libertadoresnavigator.common.dtos;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class Blog {
+public class Blog implements Parcelable {
     private String title;
     private String description;
     private String link;
-    private Date pubDate;
-
-    public Blog (String title, String description, String link, String pubDate) {
-        SimpleDateFormat parser = new SimpleDateFormat("EE, dd MM yyyy HH:mm:ss Z", Locale.US);
-
-        this.title = title;
-        this.description = description;
-        this.link = link;
-        try {
-            this.pubDate = parser.parse(pubDate);
-        }catch (Exception ex) {
-            this.pubDate = null;
-        }
-    }
+    private String pubDate;
 
     public String getTitle() {
         return title;
@@ -47,21 +37,48 @@ public class Blog {
         this.link = link;
     }
 
-    public String getPubDate () {
-        if (pubDate == null) {
-            return "Sin Fecha";
-        } else {
-            return pubDate.toString();
-        }
+    public String getPubDate() {
+        return pubDate;
     }
 
-    public void setPubDate (String date) {
-        SimpleDateFormat parser = new SimpleDateFormat("EE, dd MM yyyy HH:mm:ss Z", Locale.US);
+    public void setPubDate(String pubDate) {
+        this.pubDate = pubDate;
+    }
 
-        try {
-            this.pubDate = parser.parse(date);
-        }catch (Exception ex) {
-            this.pubDate = null;
+    public static final Parcelable.Creator<Blog> CREATOR = new Parcelable.Creator<Blog>() {
+
+        @Override
+        public Blog createFromParcel(Parcel parcel) {
+            return new Blog(parcel);
         }
+
+        @Override
+        public Blog[] newArray(int i) {
+            return new Blog[0];
+        }
+    };
+
+    public Blog() {
+
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(title);
+        parcel.writeString(description);
+        parcel.writeString(link);
+        parcel.writeString(pubDate);
+    }
+
+    private Blog(Parcel parcel) {
+        this.title = parcel.readString();
+        this.description = parcel.readString();
+        this.link = parcel.readString();
+        this.pubDate = parcel.readString();
     }
 }

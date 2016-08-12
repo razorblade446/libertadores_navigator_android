@@ -2,12 +2,14 @@ package net.razorblade446.android.libertadoresnavigator;
 
 import android.app.Application;
 import android.util.Log;
+import com.auth0.lock.Lock;
+import com.auth0.lock.LockContext;
 import com.couchbase.lite.Database;
 import com.couchbase.lite.Manager;
 import com.couchbase.lite.android.AndroidContext;
 import net.razorblade446.android.libertadoresnavigator.services.NewsService;
 
-public class NavigatorApplication extends Application{
+public class NavigatorApplication extends Application {
     private static NavigatorApplication instance;
     private static String DB_NAME = "full_navigator";
     public static String TAG = "FULL_NAVIGATOR";
@@ -25,7 +27,7 @@ public class NavigatorApplication extends Application{
         return cbDatabase;
     }
 
-    public static NavigatorApplication getInstance () {
+    public static NavigatorApplication getInstance() {
         return instance;
     }
 
@@ -35,7 +37,11 @@ public class NavigatorApplication extends Application{
         instance = this;
         initializeCBL();
 
-        newsService = NewsService.getInstance();
+        LockContext.configureLock(
+                new Lock.Builder()
+                        .loadFromApplication(this)
+                        .closable(true)
+        );
     }
 
     @Override
@@ -43,7 +49,7 @@ public class NavigatorApplication extends Application{
         super.onTerminate();
     }
 
-    private void initializeCBL () {
+    private void initializeCBL() {
         Manager manager = null;
 
         NavigatorApplication myApp = (NavigatorApplication) getApplicationContext();
